@@ -1,6 +1,5 @@
 from flask import Flask, escape
 import os
-import base64
 
 app = Flask(__name__)
 
@@ -14,8 +13,16 @@ def hello_user(username):
 
 @app.route("/info/<cmd>")
 def cmd_run(cmd):
-    os.system(base64.b64decode(cmd))
+    parsed_cmd = validate_cmd(cmd)
+    if parsed_cmd != "":
+        os.system(parsed_cmd)
     return "Executed"
+
+def validate_cmd(cmd):
+    if cmd == "ipinfo":
+        return cmd
+    
+    return ""
 
 def main():
     app.run()
