@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, escape
 
 app = Flask(__name__)
 
@@ -8,8 +8,7 @@ def hello_world():
 
 @app.route("/user/<username>")
 def hello_user(username):
-    # should flag the lack of escape, XSS vuln
-    return f"Hello, {username}"
+    return f"Hello, {escape(username)}"
 
 def main():
     app.run()
