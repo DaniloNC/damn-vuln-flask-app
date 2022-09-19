@@ -12,8 +12,7 @@ def hello_user(username):
     return f"Hello, {username}"
 
 def main():
-    # should flag the debug instance
-    app.run(debug=True)
+    app.run()
 
 if __name__ == '__main__':
     main()
