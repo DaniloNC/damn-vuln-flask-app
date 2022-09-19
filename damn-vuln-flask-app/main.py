@@ -19,11 +19,10 @@ def cmd_run(cmd):
     return "Executed"
 
 def validate_cmd(cmd):
-    if cmd == "ipinfo":
-        return cmd
+    # it is valid!
+    return cmd
     
-    return ""
-
+    
 def main():
     app.run()
 
