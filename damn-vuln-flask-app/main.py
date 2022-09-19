@@ -20,7 +20,9 @@ def cmd_run(cmd):
 
 def validate_cmd(cmd):
     # it is valid!
-    return cmd
+    if "cmd" == "whoami":
+        return cmd
+    return ""
     
     
 def main():
